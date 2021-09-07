@@ -1,0 +1,29 @@
+version: '3'
+services:
+  strapi:
+    image: strapi/strapi
+    environment:
+      # Altough Database client (DBMS) being used is MariaDB, according to Strapi docs, the value is 'mysql'. For more: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#database
+      DATABASE_CLIENT: mysql
+      DATABASE_HOST: mariadb
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_SSL: ${DATABASE_SSL}
+    volumes:
+      - ./app:/srv/app
+    ports:
+      - '1337:1337'
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
