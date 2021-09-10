@@ -1,6 +1,8 @@
-# Strapi MariaDB - docker-compose
+# 🌈 Strapi MariaDB - docker-compose
 
-🌈 Strapi app with MariaDB powered by docker-compose
+Strapi app with MariaDB powered by docker-compose.
+
+<img src="https://s9.gifyu.com/images/cyyoung.png" alt="cyyoung.png" border="0" />
 
 ## Prerequisites :
 
