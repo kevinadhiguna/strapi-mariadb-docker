@@ -2,6 +2,7 @@ version: '3'
 services:
   strapi:
     image: strapi/strapi
+    container_name: strapi_mariadb
     environment:
       # Altough Database client (DBMS) being used is MariaDB, according to Strapi docs, the value is 'mysql'. For more: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#database
       DATABASE_CLIENT: mysql
